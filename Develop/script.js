@@ -16,10 +16,10 @@ var passwordLength = 8-128;
 // Password Options User Input
 
 function passwordOptions() {
-const useNum = confirm("Use special characters?");
-const useSpecial = confirm("Use numbers?");
-const useLower = confirm("Use lowercase characters?");
-const useUpper = confirm("Use uppercase characters?");
+const useNum = confirm("Would you like  special characters?");
+const useSpecial = confirm("Would you like to use numbers?");
+const useLower = confirm("Would you like to use lowercase characters?");
+const useUpper = confirm("Would you like to use uppercase characters?");
 const charCount = parseInt(prompt("How many characters do you want?"), 12);
 
 return {
@@ -31,6 +31,19 @@ return {
 
 }
 }
+
+//  Generate Password
+function generatePassword(options) {
+  let password = "";
+  let passwordChars = [];
+for (let i = 0; i < options.charCount; i++) {
+  var randomNumber = Math.floor(Math.random() * passwordChars.length);
+  password = passwordChars.substring(randomNumber, randomNumber +1);
+ }
+ console.log(password)
+ return password;
+};
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword("#generatePassword");
@@ -41,16 +54,5 @@ function writePassword() {
     alert("Unable to generate password. Select one or more characters types and a minimum length of 8 characters.")
   }
   }
-//  Generate Password
-function generatePassword(options) {
-  let password = "";
-  let passwordChars = [];
-for (let i = 0; i < options.charCount; i++) {
-  var randomNumber = Math.floor(Math.random() * passwordChars.length);
-  password = passwordChars.substring(randomNumber, randomNumber +1);
- }
- return password;
-};
-
  // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
