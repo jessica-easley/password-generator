@@ -1,5 +1,7 @@
 # Password Generator
 
+# Application Description
+This application generates a secure random password for the user using Javascript.
 # User Story
 AS AN employee with access to sensitive data
 I WANT to randomly generate a password that meets certain criteria
@@ -26,4 +28,9 @@ THEN the password is either displayed in an alert or written to the page
     CSS
     Javascript
 
-# Application Screenshot
+# Application Screenshots
+Application
+![Application](assets/password-generator.png)
+
+Password Error Message
+![Error Message](assets/password-error-message.png)
