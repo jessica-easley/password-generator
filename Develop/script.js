@@ -42,7 +42,7 @@ function writePassword() {
   }
   }
 //  Generate Password
-function generatePassword {
+function generatePassword(options) {
   let password = "";
   let passwordChars = [];
 for (let i = 0; i < options.charCount; i++) {
