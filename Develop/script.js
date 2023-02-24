@@ -1,7 +1,6 @@
 // Assignment code here
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-var passwordText = document.querySelector("#password");
 
 // Password Characters
 const numberCharacters = "0123456789" .split("");
@@ -15,7 +14,7 @@ var passwordLength = 8-128;
 
 // Password Options User Input
 
-function passwordOptions() {
+function getPasswordOptions() {
 const useNum = confirm("Would you like  special characters?");
 const useSpecial = confirm("Would you like to use numbers?");
 const useLower = confirm("Would you like to use lowercase characters?");
@@ -28,17 +27,37 @@ return {
   useLower,
   useUpper,
   charCount
+}
+}
 
-}
-}
 
 //  Generate Password
 function generatePassword(options) {
   let password = "";
   let passwordChars = [];
+// if statements for options
+if (options.useSpecial) {
+  passwordChars = [...passwordChars, ...specialChararacters];
+}
+
+if (options.useNum) {
+  passwordChars = [...passwordChars, ...numberCharacters];
+}
+
+if (options.useLower) {
+  passwordChars = [...passwordChars, ...lowerCase];
+}
+
+if (options.useUpper) {
+  passwordChars = [...passwordChars, ...upperCase];
+}
+
+if (passwordChars.length === 0) {
+  return "";
+}
 for (let i = 0; i < options.charCount; i++) {
-  var randomNumber = Math.floor(Math.random() * passwordChars.length);
-  password = passwordChars.substring(randomNumber, randomNumber +1);
+  var randomNumber = Math.floor(Math.random() * passwordChars.length) +1;
+  password = passwordChars.substring(randomNumber, randomNumber);
  }
  console.log(password)
  return password;
@@ -46,7 +65,10 @@ for (let i = 0; i < options.charCount; i++) {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword("#generatePassword");
+  const passwordOptions = getPasswordOptions();
+  var password = generatePassword(passwordOptions);
+  var passwordText = document.querySelector("#password");
+  
   if (password && password.length >= 8){  
     passwordText.value = password;
   } else {
