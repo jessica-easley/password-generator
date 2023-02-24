@@ -31,6 +31,5 @@ THEN the password is either displayed in an alert or written to the page
 # Application Screenshots
 Application
 ![Application](assets/password-generator.png)
-
-Password Error Message
-![Error Message](assets/password-error-message.png)
+Password Prompt Example
+![UserPrompt](assets/password-user-prompt.png)

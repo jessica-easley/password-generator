@@ -37,7 +37,7 @@ function generatePassword(options) {
   let passwordChars = [];
 // if statements for options
 if (options.useSpecial) {
-  passwordChars = [...passwordChars, ...specialChararacters];
+  passwordChars = [...passwordChars, ...specialCharacters];
 }
 
 if (options.useNum) {
@@ -56,8 +56,8 @@ if (passwordChars.length === 0) {
   return "";
 }
 for (let i = 0; i < options.charCount; i++) {
-  var randomNumber = Math.floor(Math.random() * passwordChars.length) +1;
-  password = passwordChars.substring(randomNumber, randomNumber);
+  const randomIndex = Math.floor(Math.random() * passwordChars.length);
+  password = '${password}${passwordChars[randomIndex]}';
  }
  console.log(password)
  return password;
