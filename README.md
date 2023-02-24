@@ -33,3 +33,5 @@ Application
 ![Application](assets/password-generator.png)
 Password Prompt Example
 ![UserPrompt](assets/password-user-prompt.png)
+
+# Deployed Application Link: https://jessica-easley.github.io/password-generator/
