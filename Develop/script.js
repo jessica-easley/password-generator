@@ -11,7 +11,7 @@ const upperCase = lowerCase.map(char => char.toUpperCase());
 
 // var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var passwordLength = 8-128;
-var password = "";
+// var password = "";
 
 // Password Options User Input
 
@@ -34,7 +34,6 @@ return {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword("#generatePassword");
-  // var passwordText = document.querySelector("#password");
   if (password && password.length >= 8){  
     passwordText.value = password;
   } else {
@@ -42,15 +41,16 @@ function writePassword() {
     alert("Unable to generate password. Select one or more characters types and a minimum length of 8 characters.")
   }
   }
-
-for (var i = 0; i <= passwordLength; i++) {
-  var randomNumber = Math.floor(Math.random() * chars.length);
-  password += chars.substring(randomNumber, randomNumber +1);
+//  Generate Password
+function generatePassword {
+  let password = "";
+  let passwordChars = [];
+for (let i = 0; i < options.charCount; i++) {
+  var randomNumber = Math.floor(Math.random() * passwordChars.length);
+  password = passwordChars.substring(randomNumber, randomNumber +1);
  }
-
  return password;
-
-
+};
 
  // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
